@@ -4,7 +4,7 @@ import DisplayBlock from './components/DisplayBlock';
 
 export default function App() {
   return (
-    <View className="bg-white">
+    <View className="flex-1 bg-white">
       <View className = "py-20">
       <DisplayBlock/>
       <StatusBar style="auto" />
