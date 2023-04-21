@@ -6,38 +6,44 @@ import Recipes from '../screens/Recipes'
 import Profile from '../screens/Profile'
 import ExpDate from '../screens/ExpDate'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-
-
-Tab = createMaterialBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 function BottomNav() {
     return (
         <Tab.Navigator
-            headerShown={false}
-            Label={false}
-            activeColor="#37BD6B"
-            // inactiveColor="#37BD6B"
-
-            screenOptions={({ route }) => ({
-                tabBarIcon: ({ focused, color, size }) => {
-                    let iconName;
-                    if (route.name === 'Home') {
-                        iconName = focused ? 'home' : 'home-outline';
-                    } else if (route.name === 'Favourite') {
-                        iconName = focused ? 'heart' : 'heart-outline';
-                    } else if (route.name === 'Recipes') {
-                        iconName = focused ? 'book' : 'book-outline';
-                    } else if (route.name === 'Profile') {
-                        iconName = focused ? 'person' : 'person-outline';
-                    }
-                    return <Ionicons name={iconName} size={size} color={color} />;
+            initialRouteName="Home"
+            screenOptions={{
+                tabBarActiveTintColor: '#37BD6B',
+                tabBarInactiveTintColor: '#000',
+                tabBarLabelStyle: {
+                    fontSize: 12,
                 },
+                tabBarStyle: {
+                    backgroundColor: '#fff',
+                    borderTopWidth: 0,
+                    elevation: 0,
+                    shadowOpacity: 0,
+                    height: 100,
+                    borderRadius: 10,
+                    marginHorizontal: 20,
+                    marginBottom: 50,
+                    marginTop: 10,
+                    position: 'absolute',
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    shadowColor: '#000',
+                    shadowOffset: {
+                        width: 0,
+                        height: 10,
+                    },
+                    shadowOpacity: 0.53,
+                    shadowRadius: 13.97,
+                    elevation: 21,
 
-            })}
-            tabBarOptions={{
-                activeTintColor: 'tomato',
-                inactiveTintColor: 'gray',
+                },
 
             }}
         >
@@ -46,9 +52,8 @@ function BottomNav() {
                 component={Home}
                 options={{
                     tabBarLabel: 'Home',
-                    tabBarColor: '#37BD6B',
                     tabBarIcon: ({ color }) => (
-                        <Ionicons name="home" color={color} size={26} />
+                        <Ionicons name="ios-home" color={color} size={26} />
                     ),
                 }}
             />
@@ -57,9 +62,8 @@ function BottomNav() {
                 component={Favourite}
                 options={{
                     tabBarLabel: 'Favourite',
-                    tabBarColor: '#37BD6B',
                     tabBarIcon: ({ color }) => (
-                        <Ionicons name="heart" color={color} size={26} />
+                        <Ionicons name="ios-heart" color={color} size={26} />
                     ),
                 }}
             />
@@ -68,9 +72,8 @@ function BottomNav() {
                 component={Recipes}
                 options={{
                     tabBarLabel: 'Recipes',
-                    tabBarColor: '#37BD6B',
                     tabBarIcon: ({ color }) => (
-                        <Ionicons name="book" color={color} size={26} />
+                        <Ionicons name="ios-restaurant" color={color} size={26} />
                     ),
                 }}
             />
@@ -79,13 +82,13 @@ function BottomNav() {
                 component={Profile}
                 options={{
                     tabBarLabel: 'Profile',
-                    tabBarColor: '#37BD6B',
                     tabBarIcon: ({ color }) => (
-                        <Ionicons name="person" color={color} size={26} />
+                        <Ionicons name="ios-person" color={color} size={26} />
                     ),
                 }}
             />
         </Tab.Navigator>
+
     )
 }
 
