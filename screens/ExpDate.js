@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 const ExpDateScreen = () => {
     return(
         <View>
-
+            
         </View>
     )
 }
