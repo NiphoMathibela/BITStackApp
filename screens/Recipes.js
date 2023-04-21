@@ -1,3 +1,4 @@
+
 import { Link } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
 import { View, Text,StyleSheet, Pressable } from 'react-native'
@@ -62,7 +63,6 @@ export default function Recipes({navigation}) {
     })
 
 
-
     return (
         <View>
             <View style={styles.appBar}>
@@ -73,8 +73,6 @@ export default function Recipes({navigation}) {
                 {/* Remove comments from code below to be able to see the recipe options and to be able to redirect to recipe detail */}
                 {/* {meals} */}
             </View>
-
-            
         </View>
     )
 }
