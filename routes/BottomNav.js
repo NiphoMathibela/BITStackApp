@@ -4,7 +4,9 @@ import Home from '../screens/Home'
 import Favourite from '../screens/Favourite'
 import Recipes from '../screens/Recipes'
 import Profile from '../screens/Profile'
+import ExpDate from '../screens/ExpDate'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+
 
 
 Tab = createMaterialBottomTabNavigator();
