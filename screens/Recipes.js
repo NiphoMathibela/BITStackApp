@@ -99,3 +99,37 @@ export default function Recipes({navigation}) {
         </View>
     )
 }
+const styles = StyleSheet.create({
+    text: {
+        fontSize: 30,
+        marginTop: 20,
+        marginLeft: 20,
+        marginBottom: 30,
+        fontWeight: 'bold'
+    },
+    container: {
+        flex: 1,
+        // marginTop: StatusBar.currentHeight || 0,
+    },
+    item: {
+        flexDirection: 'row',
+        // alignItems: 'center',
+        justifyContent: 'space-between',
+        backgroundColor: 'rgba(55, 189, 107, 0.28)',
+        padding: 20,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        borderRadius: 10
+    },
+    title: {
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+    img: {
+        width: 100,
+        height: 100,
+        // borderRadius: 50,
+        marginLeft: 20,
+        marginRight: 20
+    }
+})

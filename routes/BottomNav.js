@@ -29,6 +29,7 @@ function BottomNav() {
                     marginHorizontal: 20,
                     marginBottom: 19,
                     marginTop: 10,
+                    padding:10,
                     position: 'absolute',
                     left: 0,
                     right: 0,
