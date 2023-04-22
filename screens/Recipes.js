@@ -4,9 +4,9 @@ import { View, Text, StyleSheet, Pressable, Image, ScrollView } from 'react-nati
 import data from "../data/db.json"
 
 
+
 export default function Recipes({ navigation }) {
-
-
+    
     const styles = StyleSheet.create({
         appBar: {
             height: 50,
