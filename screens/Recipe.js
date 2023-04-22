@@ -62,6 +62,7 @@ export default function Recipe({ navigation, route }) {
             <View style={styles.appBar}></View>
             {state ?
                 <>
+                
                     <Text style={styles.heading}>{meal.title}</Text>
                     <ScrollView style={styles.parentView}>
                         <Image source={{ uri: meal.image }} style={{ height: 300, width: 350, marginBottom: 10 }} />
