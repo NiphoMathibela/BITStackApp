@@ -8,7 +8,10 @@ export default function MyStackNav() {
     return (
         <Stack.Navigator
             screenOptions={{
-                headerShown: false
+                headerShown: false,
+                headerStyle: {
+                    backgroundColor: '#f4511e',
+                },
             }}
         >
             <Stack.Screen name="BottomNav" component={BottomNav} />
