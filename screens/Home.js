@@ -3,6 +3,7 @@ import { View, Text, Pressable, StyleSheet, Alert, Image } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { launchCameraAsync, useCameraPermissions, PermissionStatus, launchImageLibraryAsync, MediaTypeOptions } from 'expo-image-picker';
 
+
 const Home = () => {
   const [pickedImage, setPickedImage] = useState();
   const [cameraPermissionStatus, requestPermission] = useCameraPermissions();
@@ -11,7 +12,7 @@ const Home = () => {
 
 
   async function verifyPermission() {
-    if(cameraPermissionStatus.status === PermissionStatus.UNDETERMINED){
+    if (cameraPermissionStatus.status === PermissionStatus.UNDETERMINED) {
       const permissionResponse = await requestPermission();
       return permissionResponse.granted;
     }
@@ -24,7 +25,7 @@ const Home = () => {
 
   async function takeImageHandler() {
     const hasPermission = await verifyPermission();
-    if(hasPermission){
+    if (hasPermission) {
       return;
     }
 
@@ -54,14 +55,9 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      {/* The imagePreview was suppose to display the picture captured */}
-
-      {/* // display the picture captured */}
       <View style={styles.imagePreview}>
-        {imagePreview && <Image style={{ width: 80, height: 100 }} source={{ uri: pickedImage }} />}
+        {imagePreview && <Image style={{ width: 100, height: 100 }} source={{ uri: pickedImage }} />}
       </View>
-      {/* The imagePreview was suppose to display the picture captured */}
-
       <View style={styles.button}>
         <Pressable style={styles.button} onPress={pickImage}>
           <Text style={styles.text}>Choose an image from your files</Text>
@@ -108,9 +104,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   imagePreview: {
-    width: '100%',
-    height: 450,
-    marginLeft: 10,
+    height: 200,
   },
   image: {
     width: '100%',
