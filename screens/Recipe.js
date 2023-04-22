@@ -38,9 +38,6 @@ export default function Recipe({ navigation, route }) {
 
     })
 
-    // https://api.spoonacular.com/recipes/{id}/ingredientWidget.json
-
-
     const id = route.params.id;
     const data = route.params.arr;
     const [meal, setMeal] = useState();
