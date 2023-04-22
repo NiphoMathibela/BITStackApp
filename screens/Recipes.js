@@ -102,8 +102,7 @@ export default function Recipes({ navigation }) {
                         if(instructions.substring(0,8) == "<ol><li>"){
                             instructions = instructions.substring(8,((instructions.length)-10));
                         }   
-                        console.log(instructions)                     
-                        navigation.navigate('recipe',{id:item.id,title:item.title,instructions:instructions})
+                        navigation.navigate('recipe',{id:item.id,title:item.title,instructions:instructions, image:item.image})
                     }}
                 >
                     <View style={styles.recipeCard} >
