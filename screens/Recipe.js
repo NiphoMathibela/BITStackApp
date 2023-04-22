@@ -43,6 +43,7 @@ export default function Recipe({navigation,route}) {
     const title = route.params.title;
 
     
+    
    
     return (
         <View>
