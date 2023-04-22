@@ -51,6 +51,7 @@ export default function Recipe({navigation,route}) {
             {
                         <View style={styles.parentView}>
                                 <Text style={styles.heading}>{title}</Text>
+                                <Image source={{ uri: meal.image }} style={{ height: 300, width: 350, marginBottom: 10 }} />
                                 <View style={styles.recipeCard}>
                                     <Text style={styles.subheading}>Preparations Steps</Text>
                                     <Text style={styles.recipeDetails}>{instructions}</Text>
