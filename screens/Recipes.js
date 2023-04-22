@@ -1,11 +1,11 @@
-
 import { Link } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
-import { View, Text,StyleSheet, Pressable } from 'react-native'
+import { View, Text,StyleSheet, Pressable, Image } from 'react-native'
 import data from "../data/db.json"
 
 
 export default function Recipes({navigation}) {
+    
 
     const styles = StyleSheet.create({
         appBar:{
@@ -50,29 +50,52 @@ export default function Recipes({navigation}) {
         },
     })
 
-    const meals = data.meals.map((meal)=>{
-        return(
-            <View key={meal.id}>
-                <Pressable style={styles.button} onPress={() => {
-                    navigation.navigate('recipe',{receipe:meal.id})    
-                    }}>
-                    <Text style={styles.buttonLabel}>{meal.meal}</Text>
-                </Pressable>
+    const [count, setCount] = useState(0)
+    const [details,setDetails] = useState(false);
+    const [show,setShow] = useState();
+
+    let arr = [];
+    async function fetchAPI(){
+        const url = "https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=c66e7cf3945d487dbcf00b297c3f77d7";
+        const response  = await fetch(url);
+        const data = await response.json();
+  
+        for(let i = 0;i<(data.results).length;i++){
+          arr[i] = data.results[i];
+        }
+        setDetails(true);
+  
+        setShow(arr.map((item)=>{
+  
+          return(
+            <View style={{height:25,width:250,backgroundColor:"black"}} key={item.id}>
+                <Text style={{color:"white"}}>{item.title}</Text>
+                <Image 
+                    source={{url:item.image}}
+                />
             </View>
-        );
-    })
+          );
+        }));
+      }
 
 
     return (
         <View>
-            <View style={styles.appBar}>
-
-            </View>
             <View style={styles.parentView}>
                 <Text style={styles.heading}>Recipes</Text>
-                {/* Remove comments from code below to be able to see the recipe options and to be able to redirect to recipe detail */}
-                {/* {meals} */}
-            </View>
+                <Pressable
+                    style={styles.button}   
+                    onPress={fetchAPI}
+                >
+                    <Text
+                        style={styles.buttonLabel}
+                    >Generate</Text>
+                </Pressable>
+
+                <View>
+                    {details ? show :<Text>Retrieving...</Text> }
+                </View>
+            </View>        
         </View>
     )
 }
