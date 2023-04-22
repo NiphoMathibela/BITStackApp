@@ -11,8 +11,7 @@ const Home = () => {
 
 
   async function verifyPermission() {
-
-    if (cameraPermissionStatus.status === PermissionStatus.UNDETERMINED) {
+    if(cameraPermissionStatus.status === PermissionStatus.UNDETERMINED){
       const permissionResponse = await requestPermission();
       return permissionResponse.granted;
     }
@@ -21,13 +20,11 @@ const Home = () => {
       Alert("Insuffient permission");
     };
     return false;
-
   }
 
   async function takeImageHandler() {
     const hasPermission = await verifyPermission();
-
-    if (hasPermission) {
+    if(hasPermission){
       return;
     }
 
