@@ -56,7 +56,7 @@ const Home = () => {
     <View style={styles.container}>
       {/* The imagePreview was suppose to display the picture captured */}
       <View style={styles.imagePreview}>
-        {imagePreview}
+        {imagePreview && <Image source={{ uri: image}}/>}
       </View>
       {/* The imagePreview was suppose to display the picture captured */}
 
