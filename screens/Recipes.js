@@ -90,12 +90,22 @@ export default function Recipes({ navigation }) {
 
 
             return (
-                <View style={styles.recipeCard} key={item.id}>
-                    <Image
+
+                <Pressable
+                    key={item.id}
+                    onPress={()=>{
+                        navigation.navigate('recipe',{id:item.id,arr:arr})
+                    }}
+                >
+                    <View style={styles.recipeCard} >
+                     <Image
                         source={{ url: item.image }}
+                        style={{ width: 80, height: 80, borderRadius: 10 }}
                     />
-                    <Text style={{ color: "white", fontSize: 20, fontWeight: "700", margin: 10 }}>{item.title}</Text>
-                </View>
+                        <Text style={{ color: "white", fontSize: 20, fontWeight: "700", margin: 10 }}>{item.title}</Text>
+                    </View>     
+                </Pressable>
+
             );
         }));
     }
