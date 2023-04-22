@@ -1,34 +1,38 @@
 import React, { useState } from 'react'
-import { View, Text, Pressable, StyleSheet, Alert } from 'react-native'
+import { View, Text, Pressable, StyleSheet, Alert, Image } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {launchCameraAsync, useCameraPermissions, PermissionStatus} from 'expo-image-picker';
+import { launchCameraAsync, useCameraPermissions, PermissionStatus, launchImageLibraryAsync, MediaTypeOptions } from 'expo-image-picker';
 
 const Home = () => {
-
   const [pickedImage, setPickedImage] = useState();
-  const[cameraPermissionStatus, requestPermission] = useCameraPermissions();
+  const [cameraPermissionStatus, requestPermission] = useCameraPermissions();
+  const [isModalVisible, setModalVisible] = useState(false);
+
+
 
   async function verifyPermission() {
 
-    if(cameraPermissionStatus.status === PermissionStatus.UNDETERMINED){
+    if (cameraPermissionStatus.status === PermissionStatus.UNDETERMINED) {
       const permissionResponse = await requestPermission();
       return permissionResponse.granted;
     }
 
-    if(cameraPermissionStatus.status === PermissionStatus.DENIED){
+    if (cameraPermissionStatus.status === PermissionStatus.DENIED) {
       Alert("Insuffient permission");
     };
     return false;
 
   }
-  
-  async function takeImageHandler(){
+
+  async function takeImageHandler() {
     const hasPermission = await verifyPermission();
 
-    if(hasPermission){
+    if (hasPermission) {
       return;
     }
+
     const image = await launchCameraAsync({
+      allowsEditing: true,
       aspect: [16, 9],
       quality: 0.5
     });
@@ -37,23 +41,45 @@ const Home = () => {
 
   let imagePreview = <Text>No Picture taken yet</Text>
 
-  if(pickedImage){
-    imagePreview = <Image styles={styles.image} source={{uri: pickedImage }}/>;
+  if (pickedImage) {
+    imagePreview = <Image styles={styles.image} source={{ uri: pickedImage }} />;
+  }
+
+  async function pickImage() {
+    let result = await launchImageLibraryAsync({
+      mediaTypes: MediaTypeOptions.Images,
+      allowsEditing: true
+    })
+    if (!result.canceled) {
+      setPickedImage(result.uri);
+    }
   }
 
   return (
     <View style={styles.container}>
+      {/* The imagePreview was suppose to display the picture captured */}
+
+      {/* // display the picture captured */}
       <View style={styles.imagePreview}>
-        {imagePreview}
+        {imagePreview && <Image style={{ width: 80, height: 100 }} source={{ uri: pickedImage }} />}
       </View>
+      {/* The imagePreview was suppose to display the picture captured */}
+
       <View style={styles.button}>
-        <Pressable  style={styles.button} >
-          <View style={styles.iconContainer}>
-            <Ionicons name={"camera-outline"} size={42} color={"white"} onPress={takeImageHandler} />
-          </View>
-          <Text style={styles.text}>Snap your Food Item</Text>
+        <Pressable style={styles.button} onPress={pickImage}>
+          <Text style={styles.text}>Choose an image from your files</Text>
         </Pressable>
       </View>
+
+      <View style={styles.button} >
+        <Pressable style={styles.button} >
+          <View style={styles.iconContainer} >
+            <Ionicons name={"camera-outline"} size={42} color={"white"} onPress={takeImageHandler} />
+          </View>
+          <Text style={styles.text} >Snap your Food Item</Text>
+        </Pressable>
+      </View>
+
     </View>
   )
 }
@@ -67,8 +93,9 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#37BD6B',
-    padding: 7,
+    padding: 9,
     borderRadius: 8,
+    margin: 11
   },
   iconContainer: {
     backgroundColor: '#37BD6B',
@@ -83,12 +110,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
   },
-  imagePreview :{
+  imagePreview: {
     width: '100%',
-    height: 200,
-    marginVertical: 8,
-    justifyContent: 'center',
-    alignItems: 'center'
+    height: 450,
+    marginLeft: 10,
   },
   image: {
     width: '100%',
