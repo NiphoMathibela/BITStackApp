@@ -47,20 +47,24 @@ export default function Recipe({ navigation, route }) {
 
 
     return (
+        <ScrollView>
         <View>
             <View style={styles.appBar}></View>
+            
             {
                 <View style={styles.parentView}>
                     <Text style={styles.heading}>{title}</Text>
                     <Image source={{ uri: image }} style={{ height: 300, width: 350, marginBottom: 10 }} />
                     <View style={styles.recipeCard}>
                         <Text style={styles.subheading}>Preparations Steps</Text>
-                        <ScrollView>
+                        
                             <Text style={styles.recipeDetails}>{instructions}</Text>
-                        </ScrollView>
+                        
                     </View>
                 </View>
             }
+            
         </View>
+        </ScrollView>
     )
 }
