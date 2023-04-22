@@ -85,8 +85,12 @@ export default function Recipes({ navigation }) {
         }
         setDetails(true);
 
+
         setShow(arr.map((item) => {
+
+
             return (
+
                 <Pressable
                     key={item.id}
                     onPress={async()=>{
@@ -103,13 +107,14 @@ export default function Recipes({ navigation }) {
                     }}
                 >
                     <View style={styles.recipeCard} >
-                        <Image
-                            source={{ url: item.image }}
-                            style={{ width: 80, height: 80, borderRadius: 10 }}
-                        />
+                     <Image
+                        source={{ url: item.image }}
+                        style={{ width: 80, height: 80, borderRadius: 10 }}
+                    />
                         <Text style={{ color: "white", fontSize: 20, fontWeight: "700", margin: 10 }}>{item.title}</Text>
-                    </View>
+                    </View>     
                 </Pressable>
+
             );
         }));
     }
