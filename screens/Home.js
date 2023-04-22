@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, Pressable, StyleSheet, Alert } from 'react-native'
+import { View, Text, Pressable, StyleSheet, Alert, Image } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {launchCameraAsync, useCameraPermissions, PermissionStatus, launchImageLibraryAsync, MediaTypeOptions} from 'expo-image-picker';
 
@@ -8,7 +8,6 @@ const Home = () => {
   const[cameraPermissionStatus, requestPermission] = useCameraPermissions();
 
   async function verifyPermission() {
-
     if(cameraPermissionStatus.status === PermissionStatus.UNDETERMINED){
       const permissionResponse = await requestPermission();
       return permissionResponse.granted;
@@ -18,12 +17,10 @@ const Home = () => {
       Alert("Insuffient permission");
     };
     return false;
-
   }
   
   async function takeImageHandler(){
     const hasPermission = await verifyPermission();
-
     if(hasPermission){
       return;
     }
