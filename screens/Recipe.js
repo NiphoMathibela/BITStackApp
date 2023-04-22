@@ -22,7 +22,7 @@ export default function Recipe({navigation,route}) {
         },
         subheading:{
             fontWeight:"bold",
-            fontSize:15,
+            fontSize:20,
             marginBottom:15
         },
         recipeCard:{
@@ -32,48 +32,30 @@ export default function Recipe({navigation,route}) {
         },
         recipeDetails:{
             fontSize:16,
-            fontWeight:'700'
+            fontWeight:'800',
+            lineHeight:24,
         }
 
     })
 
-    // https://api.spoonacular.com/recipes/{id}/ingredientWidget.json
-
-
     const id = route.params.id;
-    const data = route.params.arr;
-    const [meal,setMeal] = useState();
-    const [state,setState] = useState(false);
-
-    useEffect(()=>{
-        // setMeal(data[id]);
-        // setState(true);
-        // alert(data[0].title);
-        data.forEach(element => {
-            if(element.id == id){
-                setMeal(element);
-                setState(true);
-            }
-        });
-    },[])
-
+    const instructions = route.params.instructions;
+    const title = route.params.title;
 
     
+   
     return (
         <View>
             <View style={styles.appBar}></View>
-            { state?
-                <>
-                    <View style={styles.parentView}>
-                                <Text style={styles.heading}>{meal.title}</Text>
+            {
+                        <View style={styles.parentView}>
+                                <Text style={styles.heading}>{title}</Text>
                                 <View style={styles.recipeCard}>
                                     <Text style={styles.subheading}>Preparations Steps</Text>
-                                    <Text style={styles.recipeDetails}>lorem ipsum</Text>
+                                    <Text style={styles.recipeDetails}>{instructions}</Text>
                             </View>
-                    </View>
-                </>
-            
-            :<Text>Retrieving...</Text>}
+                        </View>
+            }
         </View>
     )
 }

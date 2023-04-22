@@ -76,7 +76,7 @@ export default function Recipes({ navigation }) {
 
     let arr = [];
     async function fetchAPI() {
-        const url = "https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=3d9b032d1cef400eabd3d513695bb161";
+        const url = "https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=4be8352795b74f98adea31884ed16bd0";
         const response = await fetch(url);
         const data = await response.json();
 
@@ -93,8 +93,17 @@ export default function Recipes({ navigation }) {
 
                 <Pressable
                     key={item.id}
-                    onPress={()=>{
-                        navigation.navigate('recipe',{id:item.id,arr:arr})
+                    onPress={async()=>{
+                        //Function to fetch the ingredients for the food item with the details
+                        const baseUrl = `https://api.spoonacular.com/recipes/${item.id}/information?includeNutrition=false&apiKey=4be8352795b74f98adea31884ed16bd0`;
+                        const baseResponse = await fetch(baseUrl);
+                        const data2 = await baseResponse.json();
+                        let instructions = data2.instructions;
+                        if(instructions.substring(0,8) == "<ol><li>"){
+                            instructions = instructions.substring(8,((instructions.length)-10));
+                        }   
+                        console.log(instructions)                     
+                        navigation.navigate('recipe',{id:item.id,title:item.title,instructions:instructions})
                     }}
                 >
                     <View style={styles.recipeCard} >
