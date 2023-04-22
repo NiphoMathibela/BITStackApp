@@ -85,7 +85,9 @@ export default function Recipes({ navigation }) {
         }
         setDetails(true);
 
+
         setShow(arr.map((item) => {
+
 
             return (
                 <View style={styles.recipeCard} key={item.id}>
