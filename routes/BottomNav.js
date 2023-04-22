@@ -1,11 +1,11 @@
 import React from 'react'
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screens/Home'
 import Favourite from '../screens/Favourite'
 import Recipes from '../screens/Recipes'
 import Profile from '../screens/Profile'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 const Tab = createBottomTabNavigator();
 
@@ -24,10 +24,10 @@ function BottomNav() {
                     borderTopWidth: 0,
                     elevation: 0,
                     shadowOpacity: 0,
-                    height: 80,
-                    borderRadius: 10,
+                    height: 78,
+                    borderRadius: 8,
                     marginHorizontal: 20,
-                    marginBottom: 50,
+                    marginBottom: 19,
                     marginTop: 10,
                     padding:10,
                     position: 'absolute',
@@ -37,7 +37,7 @@ function BottomNav() {
                     shadowColor: '#000',
                     shadowOffset: {
                         width: 0,
-                        height: 10,
+                        height: 8,
                     },
                     shadowOpacity: 0.53,
                     shadowRadius: 13.97,
