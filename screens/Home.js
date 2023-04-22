@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { View, Text, Pressable, StyleSheet, Alert } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {launchCameraAsync, useCameraPermissions, PermissionStatus} from 'expo-image-picker';
+const vision = require('@google-cloud/vision');
+
 
 const Home = () => {
 
