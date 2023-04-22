@@ -57,6 +57,11 @@ export default function Recipe({ navigation, route }) {
 
 
 
+
+    
+    
+   
+
     return (
         <View>
             <View style={styles.appBar}></View>
