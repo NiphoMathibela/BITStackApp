@@ -14,6 +14,7 @@ module.exports = {
       'lightGreen': 'rgba(55, 189, 107, 0.28)',
       'gray': '#666666',
       'black': '#171215',
+      'white': '#FFFFFF',
     },
     extend: {},
   },
