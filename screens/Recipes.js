@@ -83,7 +83,7 @@ export default function Recipes({ navigation }) {
 
         for(var i = 0;i<ingredients.length;i++){
 
-            const url = `https://api.spoonacular.com/recipes/complexSearch?query=${ingredients[i]}&apiKey=4be8352795b74f98adea31884ed16bd0`;
+            const url = `https://api.spoonacular.com/recipes/complexSearch?query=${ingredients[i]}&apiKey=c66e7cf3945d487dbcf00b297c3f77d7`;
             const response = await fetch(url);
             const data = await response.json();
             // console.log(data.results[0]);
@@ -103,13 +103,13 @@ export default function Recipes({ navigation }) {
                         key={item.id}
                         onPress={async()=>{
                             //Function to fetch the ingredients for the food item with the details
-                            const baseUrl = `https://api.spoonacular.com/recipes/${item.id}/information?includeNutrition=false&apiKey=4be8352795b74f98adea31884ed16bd0`;
+                            const baseUrl = `https://api.spoonacular.com/recipes/${item.id}/information?includeNutrition=false&apiKey=c66e7cf3945d487dbcf00b297c3f77d7`;
                             const baseResponse = await fetch(baseUrl);
                             const data2 = await baseResponse.json();
                             let instructions = data2.instructions;
-                            if(instructions.substring(0,8) == "<ol><li>"){
-                                instructions = instructions.substring(8,((instructions.length)-10));
-                            }   
+                            // if(instructions.substring(0,8) == "<ol><li>"){
+                            //     instructions = instructions.substring(8,((instructions.length)-10));
+                            // }   
                             navigation.navigate('recipe',{id:item.id,title:item.title,instructions:instructions, image:item.image})
                         }}
                     >
