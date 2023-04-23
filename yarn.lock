@@ -8543,7 +8543,7 @@ react-native-vector-icons@*, react-native-vector-icons@^9.2.0, "react-native-vec
     postcss-value-parser "^4.2.0"
     styleq "^0.1.2"
 
-react-native@*, "react-native@>= 0.59", "react-native@>= 0.64.3", react-native@0.71.6:
+react-native@*, react-native@^0.71.6, "react-native@>= 0.59", "react-native@>= 0.64.3":
   version "0.71.6"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.71.6.tgz"
   integrity sha512-gHrDj7qaAaiE41JwaFCh3AtvOqOLuRgZtHKzNiwxakG/wvPAYmG73ECfWHGxjxIx/QT17Hp37Da3ipCei/CayQ==

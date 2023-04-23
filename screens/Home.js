@@ -65,11 +65,11 @@ const Home = () => {
       </View>
 
       <View style={styles.button} >
-        <Pressable style={styles.button} >
+        <Pressable style={styles.button} onPress={takeImageHandler} >
           <View style={styles.iconContainer} >
-            <Ionicons name={"camera-outline"} size={42} color={"white"} onPress={takeImageHandler} />
+            <Ionicons name={"camera-outline"} size={32} color={"white"} />
           </View>
-          <Text style={styles.text} >Snap your Food Item</Text>
+          <Text style={styles.text} >Snap your reciept</Text>
         </Pressable>
       </View>
 
@@ -82,18 +82,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 90,
   },
   button: {
     backgroundColor: '#37BD6B',
-    padding: 9,
+    padding: 4,
     borderRadius: 8,
-    margin: 11
+    margin: 11,
   },
   iconContainer: {
     backgroundColor: '#37BD6B',
-    borderRadius: 50,
-    padding: 7,
+    padding: 2,
     marginLeft: 'auto',
     marginRight: 'auto'
   },
