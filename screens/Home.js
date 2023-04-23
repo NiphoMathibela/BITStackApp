@@ -56,8 +56,11 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <View style={styles.imagePreview}>
-        {imagePreview && <Image style={{ width: 100, height: 100 }} source={{ uri: pickedImage }} />}
+        {imagePreview && <Image style={{ width: 200, height: 300 }} source={{ uri: pickedImage }} />}
       </View>
+      
+
+      <View className = "mt-40">
       <View style={styles.button}>
         <Pressable style={styles.button} onPress={pickImage}>
           <Text style={styles.text}>Choose an image from your files</Text>
@@ -72,6 +75,7 @@ const Home = () => {
           <Text style={styles.text} >Snap your reciept</Text>
         </Pressable>
       </View>
+      </View>
 
     </View>
   )
@@ -79,8 +83,9 @@ const Home = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'flex-end',
+    marginTop: 20,
+    // flex: 1,
+    // justifyContent: 'flex-end',
     alignItems: 'center',
     marginBottom: 90,
   },
