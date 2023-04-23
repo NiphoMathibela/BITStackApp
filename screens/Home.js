@@ -56,7 +56,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <View style={styles.imagePreview}>
-        {imagePreview && <Image style={{ width: 200, height: 300 }} source={{ uri: pickedImage }} />}
+        {imagePreview && <Image style={{ width: 250, height: 350 }} source={{ uri: pickedImage }} />}
       </View>
       
 
