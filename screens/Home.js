@@ -41,7 +41,6 @@ const Home = ({ navigation }) => {
       quality: 0.5
     });
     setPickedImage(image.uri);
-    goToIngredients();
   }
 
   let imagePreview = <Text>No Picture taken yet</Text>
@@ -59,7 +58,7 @@ const Home = ({ navigation }) => {
       setPickedImage(result.uri);
     }
 
-    goToIngredients();
+    goToIngredients()
   }
 
   return (

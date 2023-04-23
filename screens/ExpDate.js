@@ -34,7 +34,7 @@ const ExpDateScreen = ({ navigation }) => {
                     <Pressable className="ml-2" onPress={() => navigation.navigate('Home', { name: 'Jane' })}><Ionicons name={"chevron-back-outline"} size={38} color={"#37BD6B"} /></Pressable>
                 </View>
                 {recipeItems}
-                <Pressable onPress={() => navigation.navigate("recipe")} className= "bg-green w-48 h-16 mx-auto my-4 rounded-md p-4 items-center">
+                <Pressable onPress={() => navigation.navigate("recipes")} className= "bg-green w-48 h-16 mx-auto my-4 rounded-md p-4 items-center">
                 <View>
                     <Text className = "text-white">Generate recipes</Text>
                 </View>
