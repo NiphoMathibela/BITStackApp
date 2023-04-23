@@ -60,7 +60,7 @@ const Home = () => {
       </View>
       
 
-      <View className = "mt-40">
+      <View className = "mt-48">
       <View style={styles.button}>
         <Pressable style={styles.button} onPress={pickImage}>
           <Text style={styles.text}>Choose an image from your files</Text>
@@ -68,7 +68,7 @@ const Home = () => {
       </View>
 
       <View style={styles.button} >
-        <Pressable style={styles.button} onPress={takeImageHandler} >
+        <Pressable style={styles.button} onPress={takeImageHandler} className = "flex-row items-center justify-between m-auto">
           <View style={styles.iconContainer} >
             <Ionicons name={"camera-outline"} size={32} color={"white"} />
           </View>
