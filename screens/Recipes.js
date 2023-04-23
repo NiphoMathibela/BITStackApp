@@ -83,7 +83,7 @@ export default function Recipes({ navigation }) {
 
         for(var i = 0;i<ingredients.length;i++){
 
-            const url = `https://api.spoonacular.com/recipes/complexSearch?query=${ingredients[i]}&apiKey=4be8352795b74f98adea31884ed16bd0`;
+            const url = `https://api.spoonacular.com/recipes/complexSearch?query=${ingredients[i]}&apiKey=c66e7cf3945d487dbcf00b297c3f77d7`;
             const response = await fetch(url);
             const data = await response.json();
             // console.log(data.results[0]);
